@@ -1,7 +1,7 @@
 #ifndef JONULATOR_H
 #define JONULATOR_H
 
-#define MEMORY_SIZE (1<<16) - 1
+#define MEMORY_SIZE (1<<16)
 
 #include <stdint.h>
 
