@@ -6,8 +6,9 @@
 word_t
 shift_instruction_sources(stump_system_t *stump,
                           instruction_t  instr,
-                          word_t         value)
+                          word_t         value_16)
 {
+	int value = value_16;
 	/* XXX: This function assumes that the carry flag can be changed, regardless
 	 * of what the rest of the instruction says. */
 	switch (instr.type1.shift) {
@@ -49,7 +50,7 @@ shift_instruction_sources(stump_system_t *stump,
 			break;
 	}
 	
-	return value;
+	return (word_t)value;
 }
 
 
@@ -326,5 +327,5 @@ exec_branch_instruction(stump_system_t *stump, instruction_t instr)
 			else                                                    break;
 	}
 	
-	rb.pc += instr.type3.offset | ((instr.type3.offset 0x0080) ? 0xFF00 : 0);
+	rb.pc += instr.type3.offset | ((instr.type3.offset & 0x0080) ? 0xFF00 : 0);
 }
