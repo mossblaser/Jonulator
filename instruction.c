@@ -8,7 +8,7 @@ shift_instruction_sources(stump_system_t *stump,
                           instruction_t  instr,
                           word_t         value_16)
 {
-	int value = value_16;
+	int32_t value = value_16;
 	/* XXX: This function assumes that the carry flag can be changed, regardless
 	 * of what the rest of the instruction says. */
 	switch (instr.type1.shift) {
