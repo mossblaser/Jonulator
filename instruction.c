@@ -326,5 +326,5 @@ exec_branch_instruction(stump_system_t *stump, instruction_t instr)
 			else                                                    break;
 	}
 	
-	rb.pc += instr.type3.offset;
+	rb.pc += instr.type3.offset | ((instr.type3.offset 0x0080) ? 0xFF00 : 0);
 }
