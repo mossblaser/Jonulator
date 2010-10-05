@@ -12,7 +12,7 @@ shift_instruction_sources(stump_system_t *stump,
 	 * of what the rest of the instruction says. */
 	switch (instr.type1.shift) {
 		case SHIFT_NONE:
-			stump->register_bank.c = 0;
+			stump->register_bank.csh = 0;
 			break;
 		
 		case SHIFT_ASR:
@@ -39,7 +39,7 @@ shift_instruction_sources(stump_system_t *stump,
 		
 		case SHIFT_RRC:
 			/* Move the carry bit to the end. */
-			value |= stump->register_bank.c << 16;
+			value |= stump->register_bank.csh << 16;
 			
 			/* Set shifter-carry. (Kind of a hack: not really a register...) */
 			stump->register_bank.csh = value & 0x0001;
