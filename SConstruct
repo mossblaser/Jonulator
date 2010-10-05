@@ -1,0 +1,1 @@
+Program("jonulator", Glob("*.c"))
